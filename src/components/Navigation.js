@@ -24,11 +24,13 @@ const Navigation = () => {
 
             <NavLink
                 to="/companies"
-                exactstyle={link}
+                exact
+                style={link}
                 activeStyle={{
                     background: 'darkblue'
                 }}
             >Companies</NavLink>
+
         </div>
     )
 }

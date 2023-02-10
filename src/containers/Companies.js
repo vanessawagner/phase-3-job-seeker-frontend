@@ -1,21 +1,16 @@
 import React, { useState, useEffect } from 'react'
+import CompanyLink from '../components/CompanyLink'
 
-const Companies = () => {
-    const [companies, setCompanies] = useState([])
-    // create and read CRUD on the company
-    const [companyFormFlag, setCompanyFormFlag] = useState(false)
+// Show index view
+const Companies = ({companies}) => {
 
-    useEffect(() => {
-        fetch('http://localhost:9292/companies')
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-        })
-    }, [])
+    const companiesList = companies.map( c => <CompanyLink key={c.id} company={c} />)
 
   return (
     <div>
-
+        <ul>
+            {companiesList}
+        </ul>
     </div>
   )
 }
